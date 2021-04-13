@@ -12,6 +12,7 @@ function(enable_sanitizers project_name)
 
     option(ENABLE_SANITIZER_ADDRESS "Enable address sanitizer" FALSE)
     if(ENABLE_SANITIZER_ADDRESS)
+      message(STATUS "${CMAKE_PROJECT_NAME}: Enabling address sanitizer")
       list(APPEND SANITIZERS "address")
     endif()
 
@@ -22,6 +23,7 @@ function(enable_sanitizers project_name)
 
     option(ENABLE_SANITIZER_UNDEFINED_BEHAVIOR "Enable undefined behavior sanitizer" FALSE)
     if(ENABLE_SANITIZER_UNDEFINED_BEHAVIOR)
+      message(STATUS "${CMAKE_PROJECT_NAME}: Enabling undefined behavior sanitizer")
       list(APPEND SANITIZERS "undefined")
     endif()
 
