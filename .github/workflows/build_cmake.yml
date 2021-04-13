@@ -29,7 +29,7 @@ jobs:
           - name: "Windows Latest"
             os: windows-latest
             toolchain: ""
-        cmake-build-type: [ Release, Debug, RelWithDebInfo ]
+        cmake-build-type: [ Release ] # , Debug, RelWithDebInfo
 
     steps:
     - uses: actions/checkout@v2
