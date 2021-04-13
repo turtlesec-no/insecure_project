@@ -8,10 +8,6 @@ macro(run_conan)
   include(${CMAKE_BINARY_DIR}/conan.cmake)
 
   conan_add_remote(
-    NAME conan-center
-    URL https://api.bintray.com/conan/conan/conan-center)
-
-  conan_add_remote(
     NAME bincrafters
     URL https://api.bintray.com/conan/bincrafters/public-conan)
 
