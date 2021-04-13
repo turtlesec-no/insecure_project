@@ -3,7 +3,7 @@
 
 SET(fuzz_options -fsanitize=fuzzer,undefined,address)
 
-add_executable(fuzz_tester fuzz_tester.cpp)
+add_executable(fuzz_tester simple/fuzz_tester.cpp)
 target_link_libraries(fuzz_tester PRIVATE project_options project_warnings CONAN_PKG::fmt -coverage ${fuzz_options})
 target_compile_options(fuzz_tester PRIVATE ${fuzz_options})
 
