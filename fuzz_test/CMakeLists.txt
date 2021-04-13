@@ -16,4 +16,6 @@ set(FUZZ_RUNTIME
     10
     CACHE STRING "Number of seconds to run fuzz tests during ctest run") # Default of 10 seconds
 
-add_test(NAME fuzz_tester_run COMMAND fuzz_tester -max_total_time=${FUZZ_RUNTIME})
+set(FUZZ_MEMORY 2048 CACHE STRING "Number of Mb used during ctest run")
+
+add_test(NAME fuzz_tester_run COMMAND fuzz_tester -max_total_time=${FUZZ_RUNTIME} -rss_limit_mb=${FUZZ_MEMORY})
