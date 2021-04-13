@@ -21,6 +21,10 @@ jobs:
             os: ubuntu-20.04
             cmake-toolchain: ""
             cmake-build-type: Release
+          - name: "Ubuntu 20.04"
+            os: ubuntu-20.04
+            cmake-toolchain: ""
+            cmake-build-type: Debug
           - name: "Ubuntu 18.04"
             os: ubuntu-18.04
             cmake-toolchain: ""
@@ -29,14 +33,26 @@ jobs:
             os: ubuntu-20.04
             cmake-toolchain: ""
             cmake-build-type: Release
+          - name: "Ubuntu 20.04 Sanitizers"
+            os: ubuntu-20.04
+            cmake-toolchain: ""
+            cmake-build-type: Release
           - name: "MacOS Latest"
             os: macos-latest
+            cmake-toolchain: ""
+            cmake-build-type: Release
+          - name: "MacOS Latest"
+            os: macos-latest
+            cmake-toolchain: ""
+            cmake-build-type: Debug
+          - name: "Windows 2019"
+            os: windows-2019
             cmake-toolchain: ""
             cmake-build-type: Release
           - name: "Windows 2019"
             os: windows-2019
             cmake-toolchain: ""
-            cmake-build-type: Release
+            cmake-build-type: Debug
 
     steps:
     - uses: actions/checkout@v2
