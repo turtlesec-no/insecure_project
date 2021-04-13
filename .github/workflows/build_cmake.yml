@@ -19,10 +19,16 @@ jobs:
         configurations:
           - name: "Ubuntu Latest"
             os: ubuntu-latest
+            toolchain: ""
+          - name: "Ubuntu Fuzzing"
+            os: ubuntu-latest
+            toolchain: ""
           - name: "MacOS Latest"
             os: macos-latest
+            toolchain: ""
           - name: "Windows Latest"
             os: windows-latest
+            toolchain: ""
         cmake-build-type: [ Release, Debug, RelWithDebInfo ]
 
     steps:
@@ -57,7 +63,7 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       #
       # We need to source the profile file to make sure conan is in PATH
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }}
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=${{ matrix.cmake-build-type }}  ${{ matrix.configurations.toolchain }}
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
