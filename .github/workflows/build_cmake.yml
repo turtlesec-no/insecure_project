@@ -31,11 +31,11 @@ jobs:
             cmake-build-type: Release
           - name: "Ubuntu 20.04 Fuzzing"
             os: ubuntu-20.04
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
             cmake-build-type: Release
           - name: "Ubuntu 20.04 Sanitizers"
             os: ubuntu-20.04
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_sanitizers.cmake"
             cmake-build-type: Release
           - name: "MacOS Latest"
             os: macos-latest
