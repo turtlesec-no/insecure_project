@@ -1,0 +1,1 @@
+add_library(libheartbleed heartbleed.h heartbleed.c)
