@@ -1,6 +1,5 @@
 #include "heartbleed.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -21,7 +20,6 @@
 #define TLS1_RT_HEARTBEAT    24
 #define TLS1_HB_REQUEST    1
 #define TLS1_HB_RESPONSE  2
-#define SSL3_RT_MAX_PLAIN_LENGTH    16384
 
 #define n2s(c, s)  ((s=(((unsigned int)(c[0]))<< 8)| \
           (((unsigned int)(c[1]))    )),c+=2)
