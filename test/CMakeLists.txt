@@ -5,11 +5,11 @@ else()
   include(${CONAN_CATCH2_ROOT}/lib/cmake/Catch2/Catch.cmake)
 endif()
 
-add_library(catch_main STATIC catch_main.cpp)
+add_library(catch_main STATIC simple/catch_main.cpp)
 target_link_libraries(catch_main PUBLIC CONAN_PKG::catch2)
 target_link_libraries(catch_main PRIVATE project_options)
 
-add_executable(tests tests.cpp)
+add_executable(tests simple/tests.cpp)
 target_link_libraries(tests PRIVATE project_warnings project_options catch_main)
 
 # automatically discover tests that are defined in catch based test files you can modify the unittests. Set TEST_PREFIX
@@ -28,7 +28,7 @@ catch_discover_tests(
   .xml)
 
 # Add a file containing a set of constexpr tests
-add_executable(constexpr_tests constexpr_tests.cpp)
+add_executable(constexpr_tests simple/constexpr_tests.cpp)
 target_link_libraries(constexpr_tests PRIVATE project_options project_warnings catch_main)
 
 catch_discover_tests(
@@ -46,7 +46,7 @@ catch_discover_tests(
 
 # Disable the constexpr portion of the test, and build again this allows us to have an executable that we can debug when
 # things go wrong with the constexpr testing
-add_executable(relaxed_constexpr_tests constexpr_tests.cpp)
+add_executable(relaxed_constexpr_tests simple/constexpr_tests.cpp)
 target_link_libraries(relaxed_constexpr_tests PRIVATE project_options project_warnings catch_main)
 target_compile_definitions(relaxed_constexpr_tests PRIVATE -DCATCH_CONFIG_RUNTIME_STATIC_REQUIRE)
 
