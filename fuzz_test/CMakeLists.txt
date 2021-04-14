@@ -13,10 +13,11 @@ target_link_libraries(fuzz_tester PRIVATE project_options project_warnings CONAN
 target_compile_options(fuzz_tester PRIVATE ${fuzz_options})
 add_test(NAME fuzz_tester_run COMMAND fuzz_tester -max_total_time=${FUZZ_RUNTIME} -rss_limit_mb=${FUZZ_MEMORY})
 
-if(RUN_HEARTBLEED_FUZZ_TEST_IN_CTEST)
 add_executable(heartbleed_fuzz_tester heartbleed/heartbleed_fuzz_tester.cpp)
 target_link_libraries(heartbleed_fuzz_tester PRIVATE project_options project_warnings libheartbleed -coverage ${fuzz_options})
 target_compile_options(heartbleed_fuzz_tester PRIVATE ${fuzz_options})
 target_include_directories(heartbleed_fuzz_tester PRIVATE ../src/heartbleed)
+
+if(RUN_HEARTBLEED_FUZZ_TEST_IN_CTEST)
 add_test(NAME heartbleed_fuzz_tester_run COMMAND heartbleed_fuzz_tester -max_total_time=${FUZZ_RUNTIME} -rss_limit_mb=${FUZZ_MEMORY})
 endif()
