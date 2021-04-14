@@ -17,25 +17,25 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: "Ubuntu 20.04"
-            os: ubuntu-20.04
-            cmake-toolchain: ""
-            cmake-build-type: Release
-          - name: "Ubuntu 20.04"
-            os: ubuntu-20.04
-            cmake-toolchain: ""
-            cmake-build-type: Debug
           - name: "Ubuntu 18.04"
             os: ubuntu-18.04
             cmake-toolchain: ""
             cmake-build-type: Release
-          - name: "Ubuntu 20.04 Fuzzing"
+          - name: "Ubuntu 20.04"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
+            cmake-toolchain: ""
+            cmake-build-type: Release
+          - name: "Ubuntu 20.04"
+            os: ubuntu-20.04
+            cmake-toolchain: ""
             cmake-build-type: Debug
           - name: "Ubuntu 20.04 Sanitizers"
             os: ubuntu-20.04
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_sanitizers.cmake"
+            cmake-build-type: Debug
+          - name: "Ubuntu 20.04 Fuzzing"
+            os: ubuntu-20.04
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest"
             os: macos-latest
