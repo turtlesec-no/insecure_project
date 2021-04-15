@@ -7,4 +7,5 @@ endif()
 
 add_subdirectory(catch_main)
 add_subdirectory(constexpr)
+add_subdirectory(heartbleed)
 add_subdirectory(simple)
