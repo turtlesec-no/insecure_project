@@ -6,7 +6,15 @@ extern "C" {
 #include "heartbleed.h"
 }
 
-TEST_CASE("Returns_the_buffer_on_valid_request", "[!mayfail][heartbleed]")
+#define DISABLE_TESTS
+
+#ifdef DISABLE_TESTS
+#define TEST_TAGS "[.][heartbleed]"
+#else
+#define TEST_TAGS "[heartbleed]"
+#endif
+
+TEST_CASE("Returns_the_buffer_on_valid_request", TEST_TAGS)
 {
   std::array<unsigned char, 7> valid_request = {
     u'\x01',// Response type is 1
@@ -31,7 +39,7 @@ TEST_CASE("Returns_the_buffer_on_valid_request", "[!mayfail][heartbleed]")
   REQUIRE('\xef' == response[6]);// Payload byte 3
 }
 
-TEST_CASE("Does_not_leak_info_small", "[!mayfail][heartbleed]")
+TEST_CASE("Does_not_leak_info_small", TEST_TAGS)
 {
   std::array<unsigned char, 4> short_request = {
     u'\x01',
@@ -45,7 +53,7 @@ TEST_CASE("Does_not_leak_info_small", "[!mayfail][heartbleed]")
   REQUIRE(nullptr == response);
 }
 
-TEST_CASE("Does_not_leak_info_large", "[!mayfail][heartbleed]")
+TEST_CASE("Does_not_leak_info_large", TEST_TAGS)
 {
   std::array<unsigned char, 20> long_request = {
     u'\x01',
