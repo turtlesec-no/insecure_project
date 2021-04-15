@@ -7,19 +7,18 @@ extern "C" {
 
 TEST_CASE("Returns_the_buffer_on_valid_request", "[heartbleed]")
 {
-  const int valid_len = 7;
-
-  char valid_request[valid_len];
-  valid_request[0] = '\x01';// Response type is 1
-  valid_request[1] = '\x00';// Size
-  valid_request[2] = '\x07';// Size = 7 bytes
-  valid_request[3] = '\xde';// Payload byte 0
-  valid_request[4] = '\xad';// Payload byte 1
-  valid_request[5] = '\xbe';// Payload byte 2
-  valid_request[6] = '\xef';// Payload byte 3
+  std::array<unsigned char, 7> valid_request = {
+    u'\x01',// Response type is 1
+    u'\x00',// Size
+    u'\x07',// Size = 7 bytes
+    u'\xde',// Payload byte 0
+    u'\xad',// Payload byte 1
+    u'\xbe',// Payload byte 2
+    u'\xef'// Payload byte 3
+  };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(reinterpret_cast<unsigned char *>(valid_request), valid_len, &response));
+  REQUIRE(0 == heartbleed(valid_request.data(), valid_request.size(), &response));
   REQUIRE(nullptr != response);
 
   REQUIRE('\x02' == response[0]);// Response type is 2
@@ -33,20 +32,44 @@ TEST_CASE("Returns_the_buffer_on_valid_request", "[heartbleed]")
 
 TEST_CASE("Does_not_leak_info_small", "[heartbleed]")
 {
-  char short_request[] = "\x01\x01\xfd\x00";
-  size_t short_len = strlen(short_request);
+  std::array<unsigned char, 4> short_request = {
+    u'\x01',
+    u'\x01',
+    u'\xfd',
+    u'\x00',
+  };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(reinterpret_cast<unsigned char *>(short_request), int(short_len), &response));
-  REQUIRE(NULL == response);
+  REQUIRE(0 == heartbleed(short_request.data(), short_request.size(), &response));
+  REQUIRE(nullptr == response);
 }
 
 TEST_CASE("Does_not_leak_info_large", "[heartbleed]")
 {
-  char long_request[] = "\x01\x01\xfd\xde\xad\xbe\xef\xde\xad\xbe\xef\xde\xad\xbe\xef\xde\xad\xbe\xef\x00";
-  size_t long_len = strlen(long_request);
+  std::array<unsigned char, 20> long_request = {
+    u'\x01',
+    u'\x01',
+    u'\xfd',
+    u'\xde',
+    u'\xad',
+    u'\xbe',
+    u'\xef',
+    u'\xde',
+    u'\xad',
+    u'\xbe',
+    u'\xef',
+    u'\xde',
+    u'\xad',
+    u'\xbe',
+    u'\xef',
+    u'\xde',
+    u'\xad',
+    u'\xbe',
+    u'\xef',
+    u'\x00',
+  };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(reinterpret_cast<unsigned char *>(long_request), int(long_len), &response));
-  REQUIRE(NULL == response);
+  REQUIRE(0 == heartbleed(long_request.data(), long_request.size(), &response));
+  REQUIRE(nullptr == response);
 }
