@@ -19,7 +19,7 @@ TEST_CASE("Returns_the_buffer_on_valid_request", "[heartbleed]")
   };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(valid_request.data(), valid_request.size(), &response));
+  REQUIRE(0 == heartbleed(valid_request.data(), int(valid_request.size()), &response));
   REQUIRE(nullptr != response);
 
   REQUIRE('\x02' == response[0]);// Response type is 2
@@ -41,7 +41,7 @@ TEST_CASE("Does_not_leak_info_small", "[heartbleed]")
   };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(short_request.data(), short_request.size(), &response));
+  REQUIRE(0 == heartbleed(short_request.data(), int(short_request.size()), &response));
   REQUIRE(nullptr == response);
 }
 
@@ -71,6 +71,6 @@ TEST_CASE("Does_not_leak_info_large", "[heartbleed]")
   };
 
   char *response = nullptr;
-  REQUIRE(0 == heartbleed(long_request.data(), long_request.size(), &response));
+  REQUIRE(0 == heartbleed(long_request.data(), int(long_request.size()), &response));
   REQUIRE(nullptr == response);
 }
