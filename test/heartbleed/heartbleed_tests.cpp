@@ -6,7 +6,7 @@ extern "C" {
 #include "heartbleed.h"
 }
 
-TEST_CASE("Returns_the_buffer_on_valid_request", "[heartbleed]")
+TEST_CASE("Returns_the_buffer_on_valid_request", "[!mayfail][heartbleed]")
 {
   std::array<unsigned char, 7> valid_request = {
     u'\x01',// Response type is 1
