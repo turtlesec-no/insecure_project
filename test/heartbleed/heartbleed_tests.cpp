@@ -1,5 +1,9 @@
-#include <array>
+// For more on how to use the excellent Catch test framework see
+// https://github.com/catchorg/Catch2
+
 #include <catch2/catch.hpp>
+
+#include <array>
 #include <cstring>
 
 extern "C" {
@@ -13,6 +17,11 @@ extern "C" {
 #else
 #define TEST_TAGS "[heartbleed]"
 #endif
+
+TEST_CASE("Use for testing hypothesis", "[heartbleed]")
+{
+  REQUIRE(1 == 1);
+}
 
 TEST_CASE("Returns_the_buffer_on_valid_request", TEST_TAGS)
 {
