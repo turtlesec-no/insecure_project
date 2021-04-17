@@ -6,6 +6,7 @@ else ()
 endif ()
 
 add_subdirectory(catch_main)
+add_subdirectory(check_bypass)
 add_subdirectory(constexpr)
 add_subdirectory(heartbleed)
 add_subdirectory(signed_addition_overflow)
