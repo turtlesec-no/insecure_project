@@ -1,15 +1,19 @@
-# cpp_starter_project
+# InsecureProject
 
 [![CMake](https://github.com/turtlesec-no/insecure_project/actions/workflows/build_cmake.yml/badge.svg)](https://github.com/turtlesec-no/insecure_project/actions/workflows/build_cmake.yml)
 
-## Getting Started
+## CWEs
 
-### Use the Github template
+* [CWE-190 and CWE-197: Bypassing Checks](test/check_bypass/README.md)
+* [CWE-190: Signed Integer Addition Overflow](test/signed_addition_overflow/README.md)
+* [CWE-121, CWE-122 and CWE-124: Array Bounds](test/string_length/README.md)
+  
+## CVEs
 
-First, click the green `Use this template` button near the top of this page. This will take you to
-Github's ['Generate Repository'](https://github.com/lefticus/cpp_starter_project/generate) page. Fill in a repository
-name and short description, and click 'Create repository from template'. This will allow you to create a new repository
-in your Github account, prepopulated with the contents of this project. Now you can clone the project locally and get to
-work!
+* [CVE-2014-0160: Heartbleed tests](test/heartbleed/README.md)
+* [CVE-2014-0160: Heartbleed fuzztests](fuzz_test/heartbleed/README.md)
 
-    $ git clone https://github.com/<user>/<your_new_repo>.git
+## Techniques
+
+* [constexpr tests](test/constexpr/README.md)
+* [fuzzing test](fuzz_test/simple/README.md)
