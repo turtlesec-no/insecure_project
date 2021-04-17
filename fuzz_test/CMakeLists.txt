@@ -18,6 +18,6 @@ target_link_libraries(heartbleed_fuzz_tester PRIVATE project_options project_war
 target_compile_options(heartbleed_fuzz_tester PRIVATE ${fuzz_options})
 target_include_directories(heartbleed_fuzz_tester PRIVATE ../src/heartbleed)
 
-if(RUN_HEARTBLEED_FUZZ_TEST_IN_CTEST)
-add_test(NAME heartbleed_fuzz_tester_run COMMAND heartbleed_fuzz_tester -max_total_time=${FUZZ_RUNTIME} -rss_limit_mb=${FUZZ_MEMORY})
-endif()
+if (RUN_HEARTBLEED_FUZZ_TEST_IN_CTEST)
+    add_test(NAME heartbleed_fuzz_tester_run COMMAND heartbleed_fuzz_tester -max_total_time=${FUZZ_RUNTIME} -rss_limit_mb=${FUZZ_MEMORY})
+endif ()

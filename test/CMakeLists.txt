@@ -1,9 +1,9 @@
 # Automatically enable catch2 to generate ctest targets
-if(CONAN_CATCH2_ROOT_DEBUG)
+if (CONAN_CATCH2_ROOT_DEBUG)
     include(${CONAN_CATCH2_ROOT_DEBUG}/lib/cmake/Catch2/Catch.cmake)
-else()
+else ()
     include(${CONAN_CATCH2_ROOT}/lib/cmake/Catch2/Catch.cmake)
-endif()
+endif ()
 
 add_subdirectory(catch_main)
 add_subdirectory(constexpr)
