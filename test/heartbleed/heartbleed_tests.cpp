@@ -26,7 +26,7 @@ TEST_CASE("HeartBleed: Use for testing hypothesis", "[heartbleed]")
 TEST_CASE("Returns_the_buffer_on_valid_request", TEST_TAGS)
 {
   std::array<unsigned char, 7> valid_request = {
-    u'\x01',// Response type is 1
+    u'\x01',// Request type is 1
     u'\x00',// Size
     u'\x07',// Size = 7 bytes
     u'\xde',// Payload byte 0
