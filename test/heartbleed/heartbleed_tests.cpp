@@ -18,7 +18,7 @@ extern "C" {
 #define TEST_TAGS "[heartbleed]"
 #endif
 
-TEST_CASE("Use for testing hypothesis", "[heartbleed]")
+TEST_CASE("HeartBleed: Use for testing hypothesis", "[heartbleed]")
 {
   REQUIRE(1 == 1);
 }

@@ -13,7 +13,7 @@
 #define TEST_TAGS "[string_length]"
 #endif
 
-TEST_CASE("Use for testing hypothesis", "[string_length]")
+TEST_CASE("StringLength: Use for testing hypothesis", "[string_length]")
 {
   REQUIRE(1 == 1);
 }
