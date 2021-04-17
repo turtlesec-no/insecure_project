@@ -14,7 +14,7 @@ char *copyString(const char *input, int size)
 
 int containsChar(const char *input, char needle, size_t size)
 {
-  char buf[size];
+  char *buf = (char *)malloc(sizeof(char) * size);
   strncpy(buf, input, size);
   buf[size - 1] = '\0';
   int index = (strnlen(buf, size) - 1);
