@@ -68,7 +68,7 @@ TEST_CASE("CWE-122 - 2: Write Outside Heap Array Bounds", TEST_TAGS)
   free(copy);
 }
 
-TEST_CASE("CWE-124 - 1: Write Before Array Bounds", "[string_length]")
+TEST_CASE("CWE-124 - 1: Write Before Array Bounds", TEST_TAGS)
 {
   char str[] = "001122:33445566";
   REQUIRE(containsChar(str, ':', 15) == 7);
