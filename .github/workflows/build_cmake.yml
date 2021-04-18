@@ -29,13 +29,17 @@ jobs:
             os: ubuntu-20.04
             cmake-toolchain: ""
             cmake-build-type: Debug
-          - name: "Ubuntu 20.04 Sanitizers"
+          - name: "Ubuntu 20.04 Clang Sanitizers"
             os: ubuntu-20.04
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_sanitizers.cmake"
             cmake-build-type: Debug
-          - name: "Ubuntu 20.04 Fuzzing"
+          - name: "Ubuntu 20.04 Clang Fuzzing"
             os: ubuntu-20.04
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
+            cmake-build-type: Debug
+          - name: "Ubuntu 20.04 GCC-9 Leak"
+            os: ubuntu-20.04
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9_leak.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest"
             os: macos-latest
