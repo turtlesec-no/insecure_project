@@ -1,3 +1,5 @@
+option(ENABLE_TEST_WARNINGS "Will enable project warnings on the tests" OFF)
+
 add_executable(free_use_tests free_use_tests.cpp free_use.cpp)
 
 if (ENABLE_TEST_WARNINGS)
