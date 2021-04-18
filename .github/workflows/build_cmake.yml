@@ -47,11 +47,11 @@ jobs:
             cmake-build-type: Debug
           - name: "MacOS Latest"
             os: macos-latest
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang.cmake"
             cmake-build-type: Release
           - name: "MacOS Latest"
             os: macos-latest
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest Sanitizers"
             os: macos-latest
