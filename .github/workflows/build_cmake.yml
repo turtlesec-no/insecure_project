@@ -17,17 +17,17 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: "Ubuntu 18.04"
+          - name: "Ubuntu 18.04 GCC-9"
             os: ubuntu-18.04
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
             cmake-build-type: Release
-          - name: "Ubuntu 20.04"
+          - name: "Ubuntu 20.04 GCC-9"
             os: ubuntu-20.04
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
             cmake-build-type: Release
-          - name: "Ubuntu 20.04"
+          - name: "Ubuntu 20.04 GCC-9"
             os: ubuntu-20.04
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
             cmake-build-type: Debug
           - name: "Ubuntu 20.04 Clang-11 Sanitizers"
             os: ubuntu-20.04
