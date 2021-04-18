@@ -13,19 +13,19 @@
 #define TEST_TAGS "[string_length]"
 #endif
 
-TEST_CASE("[string_length] CWE-121/CWE-122/CWE-124: Use for testing hypothesis", "[string_length]")
+TEST_CASE("[string_length][1] Use for testing hypothesis", "[string_length]")
 {
   REQUIRE(1 == 1);
 }
 
-TEST_CASE("[string_length] CWE-121 - 1: Access Outside Array Bounds", "[string_length]")
+TEST_CASE("[string_length][2] CWE-121: Access Outside Array Bounds", "[string_length]")
 {
   // Null terminated string
   char str[] = "00112233445566";
   REQUIRE(stringLength(14, str) == 14);
 }
 
-TEST_CASE("[string_length] CWE-121 - 2: Access Outside Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][3] CWE-121: Access Outside Array Bounds", TEST_TAGS)
 {
   // String not terminated
   char str[] = "00112233445566";
@@ -33,14 +33,14 @@ TEST_CASE("[string_length] CWE-121 - 2: Access Outside Array Bounds", TEST_TAGS)
   REQUIRE(stringLength(14, str) == 14);
 }
 
-TEST_CASE("[string_length] CWE-121 - 3: Access Outside Array Bounds", "[string_length]")
+TEST_CASE("[string_length][4] CWE-121: Access Outside Array Bounds", "[string_length]")
 {
   // Null terminated string
   char ten[] = "0123456789";
   REQUIRE(stringLength(10, ten) == 10);
 }
 
-TEST_CASE("[string_length] CWE-121 -4: Access Outside Array Bounds", "[string_length]")
+TEST_CASE("[string_length][5] CWE-121: Access Outside Array Bounds", "[string_length]")
 {
   // Null inserted
   char ten[] = "0123456789";
@@ -48,7 +48,7 @@ TEST_CASE("[string_length] CWE-121 -4: Access Outside Array Bounds", "[string_le
   REQUIRE(stringLength(10, ten) == 6);
 }
 
-TEST_CASE("[string_length] CWE-122 - 1: Write Outside Heap Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][6] CWE-122: Write Outside Heap Array Bounds", TEST_TAGS)
 {
   // Null terminated string
   char str[] = "00112233445566";
@@ -57,7 +57,7 @@ TEST_CASE("[string_length] CWE-122 - 1: Write Outside Heap Array Bounds", TEST_T
   free(copy);
 }
 
-TEST_CASE("[string_length] CWE-122 - 2: Write Outside Heap Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][7] CWE-122: Write Outside Heap Array Bounds", TEST_TAGS)
 {
   // Null terminated string
   char str[] = "00112233445566";
@@ -68,19 +68,19 @@ TEST_CASE("[string_length] CWE-122 - 2: Write Outside Heap Array Bounds", TEST_T
   free(copy);
 }
 
-TEST_CASE("[string_length] CWE-124 - 1: Write Before Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][8] CWE-124: Write Before Array Bounds", TEST_TAGS)
 {
   char str[] = "001122:33445566";
   REQUIRE(containsChar(str, ':', 15) == 7);
 }
 
-TEST_CASE("[string_length] CWE-124 - 2: Write Before Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][9] CWE-124: Write Before Array Bounds", TEST_TAGS)
 {
   char str[] = "";
   REQUIRE(containsChar(str, ':', 0) == -1);
 }
 
-TEST_CASE("[string_length] CWE-124 - 3: Write Before Array Bounds", TEST_TAGS)
+TEST_CASE("[string_length][10] CWE-124: Write Before Array Bounds", TEST_TAGS)
 {
   char str[] = "00112233445566";
   REQUIRE(containsChar(str, ':', 14) == -1);
