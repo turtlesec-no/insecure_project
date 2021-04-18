@@ -5,4 +5,3 @@ Observe that if you enable the tests you will see errors with the ASan
 
 Observe that if you enable the warnings the code no longer compiles
 * Turn on the **ENABLE_TEST_WARNINGS** option in the [CMakeLists.txt](CMakeLists.txt) file
-
