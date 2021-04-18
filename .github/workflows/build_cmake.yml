@@ -19,55 +19,55 @@ jobs:
         config:
           - name: "Ubuntu 18.04 GCC-9"
             os: ubuntu-18.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
+            cmake-toolchain: "toolchains/linux_gcc_9.cmake"
             cmake-build-type: Release
           - name: "Ubuntu 20.04 GCC-9"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
+            cmake-toolchain: "toolchains/linux_gcc_9.cmake"
             cmake-build-type: Release
           - name: "Ubuntu 20.04 GCC-9"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9.cmake"
+            cmake-toolchain: "toolchains/linux_gcc_9.cmake"
             cmake-build-type: Debug
           - name: "Ubuntu 20.04 Clang-11 Sanitizers"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_sanitizers.cmake"
+            cmake-toolchain: "toolchains/linux_clang_11_sanitizers.cmake"
             cmake-build-type: Debug
 #          - name: "Ubuntu 20.04 Clang-11 Memory Sanitizer"
 #            os: ubuntu-20.04
-#            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_memory_sanitizer.cmake"
+#            cmake-toolchain: "toolchains/linux_clang_11_memory_sanitizer.cmake"
 #            cmake-build-type: Debug
           - name: "Ubuntu 20.04 Clang-11 Fuzzing"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
+            cmake-toolchain: "toolchains/linux_clang_11_fuzzing.cmake"
             cmake-build-type: Debug
           - name: "Ubuntu 20.04 GCC-9 Leak"
             os: ubuntu-20.04
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_gcc_9_leak.cmake"
+            cmake-toolchain: "toolchains/linux_gcc_9_leak.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest"
             os: macos-latest
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang.cmake"
+            cmake-toolchain: "toolchains/clang.cmake"
             cmake-build-type: Release
           - name: "MacOS Latest"
             os: macos-latest
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang.cmake"
+            cmake-toolchain: "toolchains/clang.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest Sanitizers"
             os: macos-latest
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang_sanitizers.cmake"
+            cmake-toolchain: "toolchains/clang_sanitizers.cmake"
             cmake-build-type: Debug
           - name: "MacOS Latest Thread Sanitizer"
             os: macos-latest
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang_thread_sanitizer.cmake"
+            cmake-toolchain: "toolchains/clang_thread_sanitizer.cmake"
             cmake-build-type: Debug
           - name: "Windows 2019"
             os: windows-2019
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/visual_studio_community_2019.cmake"
+            cmake-toolchain: "toolchains/visual_studio_community_2019.cmake"
             cmake-build-type: Release
           - name: "Windows 2019"
             os: windows-2019
-            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/visual_studio_community_2019.cmake"
+            cmake-toolchain: "toolchains/visual_studio_community_2019.cmake"
             cmake-build-type: Debug
 
     steps:
@@ -102,7 +102,7 @@ jobs:
         # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
         #
         # We need to source the profile file to make sure conan is in PATH
-        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=${{ matrix.config.cmake-build-type }}  ${{ matrix.config.cmake-toolchain }}
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=${{ matrix.config.cmake-build-type }} -DCMAKE_TOOLCHAIN_FILE=${{ matrix.config.cmake-toolchain }}
 
       - name: Build
         working-directory: ${{runner.workspace}}/build
