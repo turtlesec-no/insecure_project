@@ -18,12 +18,12 @@ extern "C" {
 #define TEST_TAGS "[heartbleed]"
 #endif
 
-TEST_CASE("CVE-2014-0160: Heartbleed: Use for testing hypothesis", "[heartbleed]")
+TEST_CASE("[heartbleed] CVE-2014-0160: Heartbleed: Use for testing hypothesis", "[heartbleed]")
 {
   REQUIRE(1 == 1);
 }
 
-TEST_CASE("CVE-2014-0160: Heartbleed: Returns_the_buffer_on_valid_request", TEST_TAGS)
+TEST_CASE("[heartbleed] CVE-2014-0160: Heartbleed: Returns_the_buffer_on_valid_request", TEST_TAGS)
 {
   std::array<unsigned char, 7> valid_request = {
     u'\x01',// Request type is 1
@@ -48,7 +48,7 @@ TEST_CASE("CVE-2014-0160: Heartbleed: Returns_the_buffer_on_valid_request", TEST
   REQUIRE('\xef' == response[6]);// Payload byte 3
 }
 
-TEST_CASE("CVE-2014-0160: Heartbleed: Does_not_leak_info_small", TEST_TAGS)
+TEST_CASE("[heartbleed] CVE-2014-0160: Heartbleed: Does_not_leak_info_small", TEST_TAGS)
 {
   std::array<unsigned char, 4> short_request = {
     u'\x01',
@@ -62,7 +62,7 @@ TEST_CASE("CVE-2014-0160: Heartbleed: Does_not_leak_info_small", TEST_TAGS)
   REQUIRE(nullptr == response);
 }
 
-TEST_CASE("CVE-2014-0160: Heartbleed: Does_not_leak_info_large", TEST_TAGS)
+TEST_CASE("[heartbleed] CVE-2014-0160: Heartbleed: Does_not_leak_info_large", TEST_TAGS)
 {
   std::array<unsigned char, 20> long_request = {
     u'\x01',
