@@ -2,7 +2,8 @@
 
 #include <inttypes.h>
 
-int *process(int *ptr) {
-  int pointer = (uintptr_t) ptr;
-  return (int *) pointer;
+int *process(int *ptr)
+{
+  int pointer = (uintptr_t)ptr;
+  return (int *)pointer;
 }
