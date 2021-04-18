@@ -45,6 +45,10 @@ jobs:
             os: macos-latest
             cmake-toolchain: ""
             cmake-build-type: Debug
+          - name: "MacOS Latest Sanitizers"
+            os: macos-latest
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang_sanitizers.cmake"
+            cmake-build-type: Debug
           - name: "Windows 2019"
             os: windows-2019
             cmake-toolchain: ""

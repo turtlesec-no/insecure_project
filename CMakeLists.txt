@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.17)
 
 # Set the project name to your project name, my project isn't very descriptive
 project(InsecureProject CXX C)
