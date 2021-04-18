@@ -63,11 +63,11 @@ jobs:
             cmake-build-type: Debug
           - name: "Windows 2019"
             os: windows-2019
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/visual_studio_community_2019.cmake"
             cmake-build-type: Release
           - name: "Windows 2019"
             os: windows-2019
-            cmake-toolchain: ""
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/visual_studio_community_2019.cmake"
             cmake-build-type: Debug
 
     steps:
