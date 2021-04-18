@@ -29,11 +29,15 @@ jobs:
             os: ubuntu-20.04
             cmake-toolchain: ""
             cmake-build-type: Debug
-          - name: "Ubuntu 20.04 Clang Sanitizers"
+          - name: "Ubuntu 20.04 Clang-11 Sanitizers"
             os: ubuntu-20.04
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_sanitizers.cmake"
             cmake-build-type: Debug
-          - name: "Ubuntu 20.04 Clang Fuzzing"
+          - name: "Ubuntu 20.04 Clang-11 Memory Sanitizer"
+            os: ubuntu-20.04
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_memory_sanitizer.cmake"
+            cmake-build-type: Debug
+          - name: "Ubuntu 20.04 Clang-11 Fuzzing"
             os: ubuntu-20.04
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/linux_clang_11_fuzzing.cmake"
             cmake-build-type: Debug
@@ -52,6 +56,10 @@ jobs:
           - name: "MacOS Latest Sanitizers"
             os: macos-latest
             cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang_sanitizers.cmake"
+            cmake-build-type: Debug
+          - name: "MacOS Latest Thread Sanitizer"
+            os: macos-latest
+            cmake-toolchain: "-DCMAKE_TOOLCHAIN_FILE=toolchains/clang_thread_sanitizer.cmake"
             cmake-build-type: Debug
           - name: "Windows 2019"
             os: windows-2019
