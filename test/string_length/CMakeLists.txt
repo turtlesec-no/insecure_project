@@ -1,6 +1,6 @@
 option(ENABLE_TEST_WARNINGS "Will enable project warnings on the tests" OFF)
 
-add_executable(string_length_tests string_length_tests.cpp string_length.hpp string_length.cpp)
+add_executable(string_length_tests string_length_tests.cpp string_length.cpp)
 
 if (ENABLE_TEST_WARNINGS)
     target_link_libraries(string_length_tests PRIVATE project_warnings project_options catch_main)
