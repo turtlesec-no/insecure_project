@@ -1,5 +1,7 @@
 [< Back](../../README.md)
 
+## CWE-415 and CWE-416: Free In Error Path
+
 Observe that if you enable the tests you will see errors with the ASan
 * Comment out the line with *#define DISABLE_TESTS* in the test file [free_use_tests.cpp](free_use_tests.cpp)
 
